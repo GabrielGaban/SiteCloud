@@ -1,0 +1,42 @@
+<! DOCTYPE html >
+
+< html  xmlns = " http://www.w3.org/1999/xhtml " >
+< head  runat = " server " >
+    < título > </ título >
+</ head >
+< corpo >
+    < form  id = " form1 " runat = " server " >
+        < div >
+		< h1 > Teste ajax </ h1 >
+        </ div >
+    </ form >
+    < script  src = " https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js " > </ script >
+    < script  type = " text / javascript " >
+        $ . get ( 'https://www.cloudflare.com/cdn-cgi/trace' ,  função ( dados )  {
+    console . log ( dados )
+} )
+
+var  options  =  {
+  enableHighAccuracy : true ,
+  limite de tempo : 5000 ,
+  maximumAge : 0
+} ;
+
+ sucesso da função ( pos )  {
+  var  crd  =  pos . coords ;
+
+  console . log ( 'posição atual é:' ) ;
+  console . log ( 'Latitude:'  +  crd . latitude ) ;
+  console . log ( 'Longitude:'  +  crd . longitude ) ;
+  console . log ( 'Mais ou menos'  +  precisão crd . + 'metros.' ) ;  
+} ;
+
+ erro de função ( err )  {
+  console . avisar ( 'ERRO ('  +  err . código  +  '):'  +  err . mensagem ) ;
+} ;
+
+navegador . região . getCurrentPosition ( sucesso ,  erro ,  opções ) ;
+
+    </ script >
+</ body >
+</ html >
